@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 - Remove Duplicates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="removeDuplicates.js"></script>
+    <style> pre { background: #1e2937; color: #e0f2fe; } </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen py-12">
+<div class="max-w-2xl mx-auto px-6">
+    <a href="index.html" class="text-blue-400 hover:underline mb-8 inline-block">← Back to All Tasks</a>
+    <h1 class="text-4xl font-bold mb-2">05. Remove Duplicates</h1>
+    <p class="text-gray-400 mb-8">Remove duplicate values from array.</p>
+
+    <div class="bg-gray-900 rounded-3xl p-8">
+        <input id="input" type="text" value="1,2,2,3,4,4,5" class="w-full p-5 bg-gray-800 border border-gray-700 rounded-2xl focus:outline-none focus:border-blue-500 text-lg">
+        <button onclick="runTask()" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 py-5 rounded-2xl font-semibold text-xl">Remove Duplicates</button>
+        <pre id="output" class="mt-8 p-6 rounded-2xl text-lg"></pre>
+    </div>
+</div>
+<script>
+    function print(text) { document.getElementById('output').textContent = text; }
+    function runTask() {
+        const arr = document.getElementById('input').value.split(',').map(n => Number(n.trim()));
+        const result = removeDuplicates(arr);
+        print(`Input : [${arr}]\nOutput: [${result}]`);
+    }
+    window.onload = runTask;
+</script>
+</body>
+</html>

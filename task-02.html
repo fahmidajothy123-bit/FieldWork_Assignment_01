@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - FizzBuzz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="fizzBuzz.js"></script>
+    <style> pre { background: #1e2937; color: #e0f2fe; } </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen py-12">
+<div class="max-w-2xl mx-auto px-6">
+    <a href="index.html" class="text-blue-400 hover:underline mb-8 inline-block">← Back to All Tasks</a>
+    <h1 class="text-4xl font-bold mb-2">02. FizzBuzz</h1>
+    <p class="text-gray-400 mb-8">Print Fizz, Buzz or FizzBuzz up to n.</p>
+
+    <div class="bg-gray-900 rounded-3xl p-8">
+        <input id="input" type="number" value="15" class="w-full p-5 bg-gray-800 border border-gray-700 rounded-2xl focus:outline-none focus:border-blue-500 text-lg">
+        <button onclick="runTask()" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 py-5 rounded-2xl font-semibold text-xl">Run FizzBuzz</button>
+        <pre id="output" class="mt-8 p-6 rounded-2xl text-lg max-h-96 overflow-auto"></pre>
+    </div>
+</div>
+<script>
+    function print(text) { document.getElementById('output').textContent = text; }
+    function runTask() {
+        const n = parseInt(document.getElementById('input').value) || 15;
+        const result = fizzBuzz(n);
+        print(result);
+    }
+    window.onload = runTask;
+</script>
+</body>
+</html>

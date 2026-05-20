@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 - Two Sum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="twoSum.js"></script>
+    <style> pre { background: #1e2937; color: #e0f2fe; } </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen py-12">
+<div class="max-w-2xl mx-auto px-6">
+    <a href="index.html" class="text-blue-400 hover:underline mb-8 inline-block">← Back to All Tasks</a>
+    <h1 class="text-4xl font-bold mb-2">08. Two Sum</h1>
+    <p class="text-gray-400 mb-8">Find two numbers that add up to target.</p>
+
+    <div class="bg-gray-900 rounded-3xl p-8">
+        <input id="arr" type="text" value="2,7,11,15" placeholder="Array (comma separated)" 
+               class="w-full p-5 bg-gray-800 border border-gray-700 rounded-2xl mb-4">
+        <input id="target" type="number" value="9" placeholder="Target" 
+               class="w-full p-5 bg-gray-800 border border-gray-700 rounded-2xl">
+        <button onclick="runTask()" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 py-5 rounded-2xl font-semibold text-xl">Find Indices</button>
+        <pre id="output" class="mt-8 p-6 rounded-2xl text-lg"></pre>
+    </div>
+</div>
+<script>
+    function print(text) { document.getElementById('output').textContent = text; }
+    function runTask() {
+        const arr = document.getElementById('arr').value.split(',').map(n => Number(n.trim()));
+        const target = Number(document.getElementById('target').value);
+        const result = twoSum(arr, target);
+        
+        let text = `Array : [${arr}]\nTarget: ${target}\n`;
+        if (result.length > 0) {
+            text += `Result : [${result}]\nExplanation: ${arr[result[0]]} + ${arr[result[1]]} = ${target}`;
+        } else {
+            text += "No solution found";
+        }
+        print(text);
+    }
+    window.onload = runTask;
+</script>
+</body>
+</html>
